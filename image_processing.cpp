@@ -58,6 +58,9 @@ int CImageProcessor::DoProcess(cv::Mat* image) {
 	cv::Mat dirImage(grayImage.size(), CV_8U);
 	cv::Mat foreground(grayImage.size(), CV_8U);
 
+	//ZaK: this statement (as well as the corresponding delete below) must only be
+	//executed ONCE at the start; now this is done in each step so the model never
+	//learns
 	for (int i = 0; i < 5; i++) {
 		background[i] = new cv::Mat(grayImage.size(), CV_8U);
 	}
