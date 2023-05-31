@@ -23,6 +23,10 @@ public:
 
 private:
 	cv::Mat* m_proc_image[3];/* we have three processing images for visualization available */
+    double threshold = 50;
+	double countThresh = 30;
+	double areaThresh = 1000;
+    cv::Mat* bkgrModel[5];
 };
 
 
