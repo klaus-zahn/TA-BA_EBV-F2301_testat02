@@ -2,6 +2,9 @@
 #include "opencv2/opencv.hpp"
 #include <iostream>
 
+//ZaK
+//background model not implemented correctly, only simply threshold applied
+
 CImageProcessor::CImageProcessor() {
     for(uint32 i=0; i<3; i++) {
         /* index 0 is 3 channels and indicies 1/2 are 1 channel deep */
