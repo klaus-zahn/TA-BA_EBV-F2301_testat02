@@ -1,3 +1,5 @@
+// 28.05.2023, Niklas Rösch
+
 /*! @file image_processing.h
  * @brief Image Manipulation class
  */
@@ -19,10 +21,22 @@ public:
 	
 	int DoProcess(cv::Mat* image);
 
+		
+	cv::Mat mPrevImage;  // cv::Mat is an OpenCV object
+	cv::Mat mBkgrImage;
+	cv::Mat grayImage;
+	cv::Mat colorImage;
+	cv::Mat resultImage;
+	
+
+
 	cv::Mat* GetProcImage(uint32 i);
 
 private:
 	cv::Mat* m_proc_image[3];/* we have three processing images for visualization available */
+	cv::Mat fgrModel;
+	cv::Mat *bkgrModel[5];				// creating counters
+	bool m_init;
 };
 
 
