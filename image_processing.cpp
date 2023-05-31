@@ -105,11 +105,15 @@ int CImageProcessor::DoProcess(cv::Mat *image)
 			if (dr2 > (threshold * threshold))
 			{
 				double alpha = atan2(dy, dx);
-
-				index = 1 + (int)((alpha + M_PI) / (M_PI / 2));
+				//ZaK: wrong binning
+				//index = 1 + (int)((alpha + M_PI) / (M_PI / 2));
+				index = 1 + ((int)((alpha + M_PI + M_PI / 4) / (2 * M_PI) * 4)) % 4;
+				//ZaK: c.f. below
+				colorImage.at<cv::Vec3b>(rows, cols) = cv::Vec3b(colorMap[index - 1]);
 			}
 			dirImage.at<uint8>(rows, cols) = index;
-			colorImage.at<cv::Vec3b>(rows, cols) = cv::Vec3b(colorMap[index - 1]);
+			//ZaK: set only if dr2 > thr²
+			//colorImage.at<cv::Vec3b>(rows, cols) = cv::Vec3b(colorMap[index - 1]);
 			
 			// Int for position of max value
 			pos = 0;
