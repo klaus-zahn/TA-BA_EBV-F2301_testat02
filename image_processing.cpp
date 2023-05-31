@@ -1,5 +1,9 @@
 #include "image_processing.h"
 
+//ZaK
+//crashes at execution
+//some parts are missing
+
 CImageProcessor::CImageProcessor()
 {
 	for (uint32 i = 0; i < 3; i++)
