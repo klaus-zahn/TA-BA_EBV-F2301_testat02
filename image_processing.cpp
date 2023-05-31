@@ -101,7 +101,9 @@ int CImageProcessor::DoProcess(cv::Mat* image) {
 				double alpha = atan2(dy, dx);				// angle of derivative (-pi to pi)
 	 			
 				//index = fmod(floor((alpha+M_PI/numBins)/(2*M_PI/numBins)), numBins)+1;	// own implementation
-				binIndex = 1+(int)((alpha+(3/4*M_PI))/(M_PI/2)); // binning from lesson
+				//ZaK: wrong binning
+				//binIndex = 1+(int)((alpha+(3/4*M_PI))/(M_PI/2)); // binning from lesson
+				binIndex = 1 + ((int)((alpha + M_PI + M_PI / 4) / (2 * M_PI) * 4)) % 4;
 				
 	 			colorImage.at<cv::Vec3b>(rows, cols) = cv::Vec3b(colorMap[binIndex - 1]);	// coloring pixels
 			}
