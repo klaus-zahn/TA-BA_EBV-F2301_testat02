@@ -1,4 +1,5 @@
-
+//ZaK
+//code crashed, some parts are missing
 
 #include "image_processing.h"
 
